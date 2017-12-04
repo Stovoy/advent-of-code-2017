@@ -9,18 +9,9 @@ pub fn run() {
 }
 
 fn sum_matching_digits(digits: &Vec<u32>, distance: usize) -> u32 {
-    let mut sum = 0;
-
-    for i in 0..digits.len() {
-        if is_matched(digits, i, distance) {
-            sum += &digits[i];
-        }
-    }
-
-    return sum;
-}
-
-fn is_matched(digits: &Vec<u32>, index: usize, distance: usize) -> bool {
-    let other_index = (index + distance) % digits.len();
-    return digits[index] == digits[other_index];
+    digits.iter()
+        .enumerate()
+        .filter(|&(i, _)| digits[i] == digits[(i + distance) % digits.len()])
+        .map(|(_, digit)| digit)
+        .sum()
 }
