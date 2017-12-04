@@ -1,10 +1,8 @@
-use std::iter::FromIterator;
-
 use utils;
 
 pub fn run() {
     for line in utils::read_input(1) {
-        let digits = Vec::from_iter(line.chars().map(|c| c.to_digit(10).unwrap()));
+        let digits = line.chars().map(|c| c.to_digit(10).unwrap()).collect();
         println!("{0}", sum_matching_digits(&digits, 1));
         println!("{0}", sum_matching_digits(&digits, digits.len() / 2));
     }

@@ -1,6 +1,5 @@
 use std::fs::File;
 use std::io::prelude::*;
-use std::iter::FromIterator;
 
 
 pub fn read_input(day: u8) -> Vec<String> {
@@ -11,5 +10,5 @@ pub fn read_input(day: u8) -> Vec<String> {
     let mut contents = String::new();
     file.read_to_string(&mut contents).expect("Something went wrong reading the file.");
 
-    return Vec::from_iter(contents.lines().map(String::from));
+    return contents.lines().map(String::from).collect();
 }
