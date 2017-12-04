@@ -3,8 +3,8 @@ use utils;
 pub fn run() {
     for line in utils::read_input(1) {
         let digits = line.chars().map(|c| c.to_digit(10).unwrap()).collect();
-        println!("{0}", sum_matching_digits(&digits, 1));
-        println!("{0}", sum_matching_digits(&digits, digits.len() / 2));
+        println!("{}", sum_matching_digits(&digits, 1));
+        println!("{}", sum_matching_digits(&digits, digits.len() / 2));
     }
 }
 
