@@ -25,6 +25,8 @@ fn error(message: &str) {
 fn run_day(day: &str) {
     match day {
         "1" => day_1::run(),
+        "2" => day_2::run(),
+        "3" => day_3::run(),
         _ => error("Please pass in the day # to run."),
     }
 }
