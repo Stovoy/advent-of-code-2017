@@ -4,3 +4,4 @@ version = "1.0.0"
 authors = ["Steve Mostovoy <stevemostovoysm@gmail.com>"]
 
 [dependencies]
+itertools = "*"
