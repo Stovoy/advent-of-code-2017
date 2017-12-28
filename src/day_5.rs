@@ -6,11 +6,11 @@ pub fn run() {
                                       .map(|n| n.parse::<i32>().unwrap())
                                       .collect();
 
-    println!("{}", count_steps(jump_offsets.clone(), &increment));
-    println!("{}", count_steps(jump_offsets.clone(), &decrement_if_three_or_more_else_increment));
+    println!("{}", count_steps(jump_offsets.clone(), |v| v + 1));
+    println!("{}", count_steps(jump_offsets.clone(), |v| if v >= 3 { v - 1} else { v + 1 }));
 }
 
-fn count_steps(mut jump_offsets: Vec<i32>, post_jump_modification_operator: &Fn(i32) -> i32) -> i32 {
+fn count_steps(mut jump_offsets: Vec<i32>, post_jump_modification_operator: fn(i32) -> i32) -> i32 {
     let mut instruction_pointer: i32 = 0;
     let mut steps = 0;
 
@@ -25,16 +25,4 @@ fn count_steps(mut jump_offsets: Vec<i32>, post_jump_modification_operator: &Fn(
     }
 
     steps
-}
-
-fn increment(v: i32) -> i32 {
-    v + 1
-}
-
-fn decrement_if_three_or_more_else_increment(v: i32) -> i32 {
-    if v >= 3 {
-        v - 1
-    } else {
-        v + 1
-    }
 }
